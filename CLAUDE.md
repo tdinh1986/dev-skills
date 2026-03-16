@@ -1,0 +1,39 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## Purpose
+
+This repository stores reusable Claude Code skills for software development workflows. Skills are modular prompt definitions that can be invoked via slash commands (e.g., `/skill-name`) within Claude Code sessions.
+
+## Skill Structure
+
+Each skill lives in its own subdirectory and typically contains:
+- `SKILL.md` — the skill definition, including frontmatter (name, description, trigger conditions) and the prompt body
+- Supporting files (scripts, templates, examples) as needed
+
+### SKILL.md Frontmatter
+
+Skills use YAML frontmatter to declare metadata:
+
+```yaml
+---
+name: skill-name
+description: One-line description used for trigger matching
+triggers:
+  - example phrase that activates this skill
+---
+```
+
+## Adding a New Skill
+
+1. Create a new directory: `mkdir skill-name/`
+2. Create `skill-name/SKILL.md` with frontmatter and prompt body
+3. Skills are discovered automatically by Claude Code from `~/.claude/skills/` — symlink or copy as needed
+
+## Skill Design Conventions
+
+- Skill names use `kebab-case`
+- Descriptions should be specific enough for accurate trigger matching — vague descriptions cause false positives
+- Each skill should have a single, well-defined responsibility
+- Include concrete trigger phrases that distinguish this skill from others
