@@ -5,8 +5,11 @@ description: >
   read, write, search, create, or manage Google Sheets data. Triggers on phrases like
   "read the spreadsheet", "update the sheet", "pull data from Google Sheets",
   "add rows to the spreadsheet", "export sheet to CSV/JSON", "create a new spreadsheet",
-  "search the spreadsheet for...", or when the user provides a Google Sheets URL and wants
-  to interact with its data programmatically.
+  "search the spreadsheet for...", "look up this value in the gsheet", "analyze the data in
+  this sheet", "generate a report from the spreadsheet", or when the user provides a Google
+  Sheets URL and wants to interact with its data programmatically. Also use when the user
+  shares a docs.google.com/spreadsheets link and asks anything about its contents — even
+  simple lookups like "what's in column B?" or "find all rows where status is done".
 ---
 
 # Spreadsheet CLI
@@ -27,9 +30,9 @@ gcloud services enable sheets.googleapis.com
 
 ## Helper Script
 
-The CLI helper is located at: `spreadsheet-cli/sheets.py` (relative to this skill's directory).
+The CLI helper is located at `sheets.py` in this skill's directory (sibling to this SKILL.md file). Resolve the full path from the skill's location.
 
-Run it with: `python3 <path-to>/sheets.py <command> [args...]`
+Run it with: `python3 <skill-dir>/sheets.py <command> [args...]`
 
 ## Available Commands
 
@@ -94,6 +97,21 @@ python3 sheets.py append "abc123" "Sheet1!A:D" '[["2024-01-15","Task","Done","No
 ```bash
 python3 sheets.py search "abc123" "error" "Logs!A:F"
 ```
+
+### Analyze data from a sheet
+```bash
+# Export to JSON, then process with Python or jq
+python3 sheets.py read-json "abc123" "Sales!A1:F500" > sales.json
+# Or pipe CSV to other tools
+python3 sheets.py read-csv "abc123" "Sheet1!A:D" | head -20
+```
+
+### Large Sheets
+
+The script reads the full requested range in one API call. For very large sheets (10k+ rows):
+- Read specific ranges instead of the whole sheet (`A1:Z1000` instead of `A:ZZ`)
+- Use `search` to find relevant rows rather than reading everything
+- Export to CSV/JSON and process locally for heavy analysis
 
 ## Error Handling
 

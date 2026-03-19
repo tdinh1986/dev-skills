@@ -1,0 +1,8 @@
+{
+  "name": "dev-skills",
+  "version": "1.0.0",
+  "description": "Personal dev-skills repository — reusable Claude Code skills for software development workflows.",
+  "author": {
+    "name": "kenzen"
+  }
+}

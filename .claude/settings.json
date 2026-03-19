@@ -1,0 +1,14 @@
+{
+  "pluginMarketplaces": {
+    "dev-skills": {
+      "source": {
+        "source": "npm",
+        "package": "dev-skills"
+      },
+      "installLocation": "~/.claude/plugins/marketplaces/dev-skills"
+    }
+  },
+  "enabledPlugins": {
+    "dev-skills@dev-skills": true
+  }
+}

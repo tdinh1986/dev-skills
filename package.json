@@ -1,0 +1,12 @@
+{
+  "name": "dev-skills",
+  "version": "1.0.0",
+  "description": "Personal Claude Code skills marketplace — reusable skills for software development workflows.",
+  "author": "tdinh1986",
+  "license": "MIT",
+  "keywords": ["claude-code", "claude-plugin", "skills"],
+  "files": [
+    ".claude-plugin",
+    "skills"
+  ]
+}

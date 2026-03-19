@@ -5,9 +5,12 @@ description: >
   Use this skill whenever the user provides a URL and wants a case study, summary, writeup,
   or structured analysis of a web article. Also trigger when the user says things like
   "turn this article into a case study", "summarize this link as a case study",
-  "create a case study from this URL", "write up this article", or provides a URL and asks
-  for a structured breakdown. Even if they don't say "case study" explicitly — if they
-  share a tech article URL and want a structured summary for team reference, this is the skill to use.
+  "create a case study from this URL", "write up this article", "analyze this article",
+  "digest this link", "break down this URL for the team", "what are the key takeaways from this",
+  or provides a URL and asks for a structured breakdown. Even if they don't say "case study"
+  explicitly — if they share a tech article, blog post, or documentation URL and want a
+  structured summary for team reference or knowledge sharing, this is the skill to use.
+  Also handles non-English articles (with translation option).
 ---
 
 ## Description
@@ -38,13 +41,12 @@ This avoids pulling unnecessary content (nav bars, ads, sidebars) and keeps proc
 
 ### Status Output
 
-Before writing the file, tell the user:
-- **Article title** and **source** identified
-- **Publication date** (or "not found")
-- **Content length** (approximate word count of the extracted content)
-- **Sections with thin coverage** — flag any template sections where the article provides little or no information (e.g., "Results section will be thin — no metrics mentioned in the article")
+Before writing the file, briefly report:
+- **Title**, **source**, and **date** (or "date not found")
+- **~word count** of extracted content
+- **Gaps** — flag template sections with little/no source coverage (e.g., "Results will be thin — no metrics in the article")
 
-This lets the user decide whether to proceed or provide additional context before the file is written.
+This lets the user decide whether to proceed or provide additional context.
 
 ### Error Handling
 
@@ -89,9 +91,9 @@ The specific problem or opportunity that drove the work. Be concrete — avoid "
 
 What was built, adopted, or changed? Technical approach, architecture decisions, tools chosen, methodology applied. This is usually the meatiest section.
 
-## Comparison Table
+## Comparison Table (when applicable)
 
-Summarize the key items, options, or approaches in a comparison table. Adapt columns to fit the content — the goal is scannable reference data.
+Include a comparison table only when the article contains structured, comparable data — tool comparisons, before/after transformations, or items with measurable attributes. Skip this section entirely if forcing a table would mean inventing structure that isn't in the source.
 
 If the article compares tools, frameworks, or approaches:
 
@@ -108,7 +110,7 @@ If the article lists items with attributes:
 | Name | Purpose | Key Detail | Notable Metric |
 |------|---------|------------|----------------|
 
-Choose the table structure that best captures the article's core information.
+Choose the table structure that best captures the article's core information. Adapt columns freely.
 
 ## Results & Impact
 
@@ -155,7 +157,7 @@ Use the publication date if available, otherwise today's date. The slug should b
 
 **Neutral and factual tone.** This is a reference document, not a blog post.
 
-**The comparison table is the centerpiece.** Readers often skim straight to it — make sure it captures the most decision-relevant information. Adapt columns to fit.
+**The comparison table earns its place or gets cut.** When present, readers skim straight to it — make sure it captures decision-relevant information. But if the article doesn't naturally compare things, omit the section rather than padding it.
 
 **Suggested actions should be practical.** Write as if advising a colleague — with enough context to understand why each action matters.
 
