@@ -1,0 +1,14 @@
+{
+  "skills": [
+    {
+      "name": "case-study",
+      "description": "Fetches content from a web URL and produces a standardized case study summary in markdown.",
+      "path": "skills/case-study"
+    },
+    {
+      "name": "spreadsheet-cli",
+      "description": "Interact with Google Spreadsheets from the command line using the Google Sheets API.",
+      "path": "skills/spreadsheet-cli"
+    }
+  ]
+}

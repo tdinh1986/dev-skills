@@ -1,14 +1,12 @@
 {
+  "enabledPlugins": {},
   "pluginMarketplaces": {
     "dev-skills": {
       "source": {
-        "source": "npm",
-        "package": "dev-skills"
+        "source": "git",
+        "url": "git@github.com:tdinh1986/dev-skills.git"
       },
       "installLocation": "~/.claude/plugins/marketplaces/dev-skills"
     }
-  },
-  "enabledPlugins": {
-    "dev-skills@dev-skills": true
   }
 }

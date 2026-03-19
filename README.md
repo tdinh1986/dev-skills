@@ -12,8 +12,8 @@ Add the following to your `~/.claude/plugins/known_marketplaces.json`:
 {
   "dev-skills": {
     "source": {
-      "source": "npm",
-      "package": "dev-skills"
+      "source": "git",
+      "url": "git@github.com:tdinh1986/dev-skills.git"
     },
     "installLocation": "~/.claude/plugins/marketplaces/dev-skills"
   }
@@ -71,6 +71,7 @@ Fetches content from a web URL and produces a standardized case study summary in
 ```
 dev-skills/
 ├── .claude-plugin/
+│   ├── marketplace.json       # Marketplace skill registry
 │   └── plugin.json            # Plugin metadata
 ├── .claude/
 │   └── settings.json          # Reference config for marketplace + enabledPlugins
@@ -80,7 +81,6 @@ dev-skills/
 │   └── spreadsheet-cli/
 │       ├── SKILL.md
 │       └── sheets.py
-├── package.json
 ├── CLAUDE.md
 └── README.md
 ```
@@ -89,5 +89,5 @@ dev-skills/
 
 1. Create a directory under `skills/`: `mkdir skills/skill-name/`
 2. Add `skills/skill-name/SKILL.md` with YAML frontmatter (`name`, `description`) and prompt body
-3. Publish a new version to npm: `npm publish`
+3. Push to the GitHub repo: `git push origin main`
 4. Users install with: `/plugin install skill-name@dev-skills`
