@@ -1,5 +1,10 @@
 {
-  "skills": [
+  "name": "dev-skills",
+  "owner": {
+    "name": "tdinh1986",
+    "url": "git@github.com:tdinh1986/dev-skills.git"
+  },
+  "plugins": [
     {
       "name": "case-study",
       "description": "Fetches content from a web URL and produces a standardized case study summary in markdown.",
