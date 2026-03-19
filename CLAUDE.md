@@ -6,6 +6,29 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This repository stores reusable Claude Code skills for software development workflows. Skills are modular prompt definitions that can be invoked via slash commands (e.g., `/skill-name`) within Claude Code sessions.
 
+## Commands
+
+```bash
+# Install this skills package as a Claude Code plugin (from the repo root)
+npm install  # no dependencies; just sets up package metadata
+
+# Symlink the skills directory for local development
+ln -s $(pwd)/skills ~/.claude/skills/dev-skills
+
+# Verify a skill loads
+# Run /reload-plugins inside a Claude Code session after adding a skill
+```
+
+## Repository Layout
+
+```
+skills/
+  case-study/       # Fetches a URL and produces a structured case study
+  spreadsheet-cli/  # CLI-style interaction with Google Sheets
+CLAUDE.md           # This file
+package.json        # Plugin manifest for npm-based distribution
+```
+
 ## Skill Structure
 
 Each skill lives in its own subdirectory and typically contains:
@@ -29,7 +52,9 @@ triggers:
 
 1. Create a new directory: `mkdir skill-name/`
 2. Create `skill-name/SKILL.md` with frontmatter and prompt body
-3. Skills are discovered automatically by Claude Code from `~/.claude/skills/` — symlink or copy as needed
+3. Copy or symlink your skill directory into `~/.claude/skills/`
+4. Run `/reload-plugins` inside Claude Code to activate
+5. Verify it appears in the skill list before writing trigger phrases
 
 ## Skill Design Conventions
 
