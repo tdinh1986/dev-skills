@@ -24,7 +24,9 @@ ln -s $(pwd)/skills ~/.claude/skills/dev-skills
 ```
 skills/
   case-study/       # Fetches a URL and produces a structured case study
+  speckit/          # Spec-Driven Development across 7 sequential phases
   spreadsheet-cli/  # CLI-style interaction with Google Sheets
+  til/              # Surfaces learnings from local chat history; identifies skill candidates
 CLAUDE.md           # This file
 package.json        # Plugin manifest for npm-based distribution
 ```

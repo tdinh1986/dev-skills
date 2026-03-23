@@ -29,7 +29,9 @@ Add the following to your `~/.claude/plugins/known_marketplaces.json`:
 For example:
 ```
 /plugin install case-study@dev-skills
+/plugin install speckit@dev-skills
 /plugin install spreadsheet-cli@dev-skills
+/plugin install til@dev-skills
 ```
 
 ### 3. Enable globally (optional)
@@ -64,6 +66,18 @@ Fetches content from a web URL and produces a standardized case study summary in
 - **Output:** Structured markdown with overview, challenge, solution, comparison table, results, and suggested actions
 - **Usage:** `/case-study` — then provide a URL
 
+### speckit
+
+Applies Spec-Driven Development methodology across 7 sequential phases: constitution, specification (BDD/Gherkin), clarification, technical planning, plan analysis, task breakdown, and implementation.
+
+- **Usage:** `/speckit` — then describe the feature or system to spec out
+
+### til
+
+Analyzes local Claude, Codex, and Gemini chat history to surface learnings and identify repeated tasks as skill candidates.
+
+- **Usage:** `/til` — reviews chat history and outputs a structured list of learnings and skill suggestions
+
 ---
 
 ## Project Structure
@@ -78,9 +92,13 @@ dev-skills/
 ├── skills/
 │   ├── case-study/
 │   │   └── SKILL.md
-│   └── spreadsheet-cli/
-│       ├── SKILL.md
-│       └── sheets.py
+│   ├── speckit/
+│   │   └── SKILL.md
+│   ├── spreadsheet-cli/
+│   │   ├── SKILL.md
+│   │   └── sheets.py
+│   └── til/
+│       └── SKILL.md
 ├── CLAUDE.md
 └── README.md
 ```
