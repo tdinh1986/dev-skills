@@ -14,4 +14,4 @@ Ask structured questions across these dimensions (max 5 total):
 After the user responds:
 1. **Answer consumption:** Explicitly update `spec.md` with the clarified answers. Add a `## Clarifications` section at the bottom of `spec.md` listing each question and its answer.
 2. **Loop-back rule:** If any answer changes a *functional* requirement (not just a constraint or non-functional detail), return to Phase 2 and revise that requirement and its BDD scenario before continuing to Phase 4.
-3. **Completion signal:** Phase 3 is complete when all questions are answered and `spec.md` reflects the clarifications. State: "Clarification complete. Proceeding to `/speckit.plan`."
+3. **Completion signal:** Phase 3 is complete when all questions are answered and `spec.md` reflects the clarifications. State: "Clarification complete. Proceeding to `/speckit.plan`." If running under `commands/auto.md`, return control to the automatic workflow instead of asking the user to invoke the next phase.

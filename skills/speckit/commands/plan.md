@@ -30,7 +30,7 @@
 6. **Output:** `plan.md` artifact.
 7. **Sync agent context:** Run `update-agent-context.sh existing` (or `.ps1 -AgentType existing`). This parses the new `plan.md` and updates any existing project agent context files such as `AGENTS.md`, `CLAUDE.md`, or `GEMINI.md`. If the script exits non-zero, log the error and continue; context sync is advisory, not blocking.
 
-**Hand-off prompt:** After writing `plan.md`, state: "Plan ready. Run `/speckit.tasks` to break this into an ordered task list."
+**Hand-off prompt:** After writing `plan.md`, state: "Plan ready. Run `/speckit.tasks` to break this into an ordered task list." If running under `commands/auto.md`, return control to the automatic workflow instead of asking the user to invoke the next phase.
 
 **Output format:**
 ```markdown

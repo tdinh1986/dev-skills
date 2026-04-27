@@ -1,0 +1,6 @@
+interface:
+  display_name: "Speckit"
+  short_description: "Run spec-driven development flows"
+  default_prompt: "Use $speckit to turn this feature idea into a spec, plan, and task list."
+policy:
+  allow_implicit_invocation: true

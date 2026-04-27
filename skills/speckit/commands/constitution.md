@@ -39,4 +39,4 @@
 > User: "Start spec-kit. I want to build a login feature."
 > Agent: Reads README + memory → produces `constitution.md` with named sections (Code Quality, Testing Standards, Security Posture) and Governance footer → asks user to confirm before proceeding to Phase 2.
 
-After the user confirms, state: "Constitution ready. Run `/speckit.specify` to write functional requirements."
+After the user confirms, state: "Constitution ready. Run `/speckit.specify` to write functional requirements." If running under `commands/auto.md`, return control to the automatic workflow instead of asking the user to invoke the next phase.

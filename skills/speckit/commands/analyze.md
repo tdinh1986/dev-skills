@@ -34,3 +34,5 @@
 ```
 
 Status values: `PASS` | `WARN` | `FAIL`
+
+If running under `commands/auto.md`, return control to the automatic workflow after writing `analysis.md`. The automatic workflow decides whether to repair `plan.md`, continue to tasks, or stop on remaining `FAIL` findings.

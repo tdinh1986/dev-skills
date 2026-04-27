@@ -51,7 +51,7 @@
    - **Fallback:** If script is missing or fails, format Gherkin manually.
    - **Multiple Feature blocks:** If the request spans multiple independent behavior areas (e.g., login + registration), produce one Feature block per area, each with its own JSON object and `bdd_converter.cjs` call.
 6. **Output:** `spec.md` artifact with Feature/Scenario blocks + Definition of Done checklist.
-7. **Hand-off prompt:** After writing `spec.md`, state: "Spec ready. Run `/speckit.clarify` to surface edge cases, or `/speckit.plan` to proceed to architecture."
+7. **Hand-off prompt:** After writing `spec.md`, state: "Spec ready. Run `/speckit.clarify` to surface edge cases, or `/speckit.plan` to proceed to architecture." If running under `commands/auto.md`, return control to the automatic workflow instead of asking the user to invoke the next phase.
 
 **Output format:**
 ```markdown

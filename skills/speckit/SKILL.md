@@ -1,6 +1,6 @@
 ---
 name: speckit
-description: "Applies Spec-Driven Development methodology across 7 sequential phases: constitution, specification (BDD/Gherkin), clarification, technical planning, plan analysis, task breakdown, and implementation. Trigger on spec-driven workflow requests, feature specs, architecture planning, task breakdowns, or any `/speckit.*` command."
+description: "Run Spec-Driven Development workflows for feature ideas, specs, architecture plans, task breakdowns, and implementation. Trigger on `$speckit`, automatic/full spec-driven workflow requests, feature specification requests, planning/analysis/task generation requests, implementation requests, or any `/speckit.*` command."
 ---
 
 # Skill: Speckit — Spec-Driven Development
@@ -22,6 +22,8 @@ When a phase is triggered:
 4. Resolve `<skill_dir>`: determine the absolute path of the directory containing this `SKILL.md`. Substitute `<skill_dir>` with that resolved path in all script invocations.
 5. After writing each phase artifact, announce: "Phase N complete — [artifact] written to [path]."
 6. Do not rely on memory of previous command file contents; always read the command file fresh.
+
+When an automatic workflow is triggered, read `commands/auto.md` first. Let it orchestrate the phases by reading each phase command file fresh and applying the stop gates it defines.
 
 <phase>Parallel Tool Mandate</phase>
 
@@ -55,10 +57,20 @@ Before executing phases 3–7 (clarify, plan, analyze, tasks, implement):
 | `/speckit.analyze` | `commands/analyze.md` |
 | `/speckit.tasks` | `commands/tasks.md` |
 | `/speckit.implement` | `commands/implement.md` |
-| "start spec-kit" / "full workflow" | `commands/constitution.md` → then `commands/specify.md` |
+| `$speckit`, "start speckit", "start spec-kit", "automatic flow", "full workflow" | `commands/auto.md` |
 | No command, spec/feature request | `commands/specify.md` |
 | No command, architecture/stack request | `commands/plan.md` |
 | No command, task breakdown request | `commands/tasks.md` |
+
+## Automatic Workflow Defaults
+
+- Run the automatic workflow through `tasks.md`, then stop before code changes.
+- Never run `/speckit.implement` unless the user explicitly asks to implement.
+- After each completed phase artifact, stop for user review and approval before continuing to the next phase.
+- Resume only after the user approves the current artifact. If the user requests changes, revise the current phase artifact and repeat that phase's review gate.
+- Pause for user input when a phase hits its ambiguity, clarification, approval, or hard-failure gate.
+- If plan analysis returns `FAIL`, ask the user to review `analysis.md`, then attempt one plan-repair loop after approval, rerun analysis, and gate the revised `analysis.md` before continuing. Stop if any `FAIL` remains.
+- During automatic workflow, phase hand-off prompts return control to `commands/auto.md`; do not ask the user to manually invoke the next phase unless a gate stops progress.
 
 ## Script Invocation
 

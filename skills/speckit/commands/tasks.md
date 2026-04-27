@@ -52,7 +52,7 @@
 
 Each task entry should be actionable at the level of a single code change (file, function, migration, test, etc.).
 
-**Hand-off prompt:** After writing `tasks.md`, state: "Tasks ready. Run `/speckit.implement` to begin execution."
+**Hand-off prompt:** After writing `tasks.md`, state: "Tasks ready. Run `/speckit.implement` to begin execution." If running under `commands/auto.md`, report automatic workflow completion through tasks and do not proceed to implementation.
 
 **Example:**
 > User: `/speckit.tasks` — Agent reads `plan.md`, identifies 3 user stories (Upload, Preview, Delete), produces `tasks.md` with 12 tasks: T001–T003 marked `[P]` (schema + S3 config + API scaffolding), T004 marked `[depends: 1, 2, 3]`.
